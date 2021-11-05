@@ -17,7 +17,7 @@ CYAN = (0, 255, 255)
 BLACK = (0, 0, 0)
 COLORS = [RED, BLUE, YELLOW, GREEN, MAGENTA, CYAN]
 
-# Генерирует положения и размеры начальных шариков
+# генерирует положения и размеры начальных шариков
 balls = []
 for i in range(randint(6, 12)):
     x = randint(100, 1200)
