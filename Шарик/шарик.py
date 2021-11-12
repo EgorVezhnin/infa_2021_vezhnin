@@ -127,17 +127,7 @@ def save_score(count):
     g.close()
 
 
-def balls():
-    for i in range(l):
-        color, x, y, r = balls[i]
-        new_ball(color, x, y, r)
-    for i in range(l):
-        balls[i][1] += v[i][0]
-        balls[i][2] += v[i][1]
-        if balls[i][1] - balls[i][3] < 0 or balls[i][1] + balls[i][3] > 1380:
-            v[i][0] = -v[i][0]
-        if balls[i][2] - balls[i][3] < 65 or balls[i][2] + balls[i][3] > 835:
-            v[i][1] = -v[i][1]
+
 
 
 pygame.display.update()
@@ -158,7 +148,16 @@ while not finished:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
             click(event)
-    balls()
+    for i in range(l):
+        color, x, y, r = balls[i]
+        new_ball(color, x, y, r)
+    for i in range(l):
+        balls[i][1] += v[i][0]
+        balls[i][2] += v[i][1]
+        if balls[i][1] - balls[i][3] < 0 or balls[i][1] + balls[i][3] > 1380:
+            v[i][0] = -v[i][0]
+        if balls[i][2] - balls[i][3] < 65 or balls[i][2] + balls[i][3] > 835:
+            v[i][1] = -v[i][1]
     circle(screen, (randint(0, 255), randint(0, 255), randint(0, 255)), (x1, y1), p)
     p = (25 + 25 * m.sin(t / 5)) * m.exp(-h / 40)
     t += 1
